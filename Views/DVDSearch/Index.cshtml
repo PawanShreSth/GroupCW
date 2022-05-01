@@ -1,48 +1,14 @@
 ﻿@using DatabaseCoursework.Models
 @using groupCW.Views.DVDSearch
-@model IEnumerable<JoinHelper>
+@model JoinHelper
 
 
 @*<a class="text-decoration-none btn-primary btn btn-light mb-3" asp-controller="DVDSearch" asp-action="Filter">Filter DVDs</a>*@
 
-<form class="mb-3 mt-3">
-    @* Outler loop runs only once and it is used to add asp-for value in select tag *@
+<form method="post" asp-action="Filter" class="mb-3 mt-3">
+     
+    <input asp-for="lName" class="form-control mb-3" placeholder="Search for DVD Tile by typing Actor's surname" />
 
-    @foreach(var objs in Model)
-    {
-        <select asp-for="@objs.lName" class="p-2" name="surname" id="surname">
-            @foreach(var obj in Model)
-            {
-                <option value="@obj.lName">@obj.lName</option>
-            }
-        </select>
-
-        break;
-    }
-
-    
+     <button type="submit" class="btn btn-primary" style="width: 150px">Search</button>
 </form>
 
-<table class="table text-white table-bordered table-striped" style="width: 100%">
-    <thead>
-        <tr>
-            <th style="width: 25%">DVD Titles</th>
-            <th style="width: 25%">DVD Released</th>
-            <th style="width: 25%">Actor First Name</th>
-            <th style="width: 25%">Actor Last Name</th>
-        </tr>
-    </thead>
-
-    <tbody >
-        @foreach(var obj in Model)
-        {
-            <tr>
-                <td class="text-white" width="25%">@obj.dTitleName</td>
-                <td class="text-white" width="25%">@obj.releaseDate2</td>
-                <td class="text-white" width="25%">@obj.fName</td>
-                <td class="text-white" width="25%">@obj.lName</td>
-
-            </tr>
-        }
-    </tbody>
-</table>

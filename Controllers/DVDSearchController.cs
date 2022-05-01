@@ -15,7 +15,14 @@ namespace groupCW.Controllers
         {
             _db = db;
         }
+
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Filter(string lName)
         {
 
             IEnumerable<JoinHelper> objDvdList = _db.DVDTitles.Join(_db.CastMembers,
@@ -36,16 +43,13 @@ namespace groupCW.Controllers
                      dTitleName = castmeme.dTitle,
                      releaseDate2 = castmeme.releaseDate
                  }
-                 ).ToList();
+                 ).Where(x => x.lName.ToLower() == lName.ToLower()).ToList();
 
             
 
             return View(objDvdList);
         }
 
-        public IActionResult Filter()
-        {
-            return View();  
-        }
+
     }
 }

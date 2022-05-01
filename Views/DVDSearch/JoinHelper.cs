@@ -9,5 +9,7 @@
         public string dTitleName { get; set; }
 
         public string releaseDate2 { get; set; }
+
+
     }
 }
