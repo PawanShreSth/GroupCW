@@ -2,6 +2,7 @@
 {
     public class JoinHelper
     {
+        // This class was created to supply multiple models in a view
         public string fName { get; set; }
         public string lName { get; set; }
         public int castMemberId { get; set; }
