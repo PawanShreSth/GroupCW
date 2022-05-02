@@ -1,6 +1,7 @@
 ﻿using DatabaseCoursework.Models;
 using groupCW.Data;
 using groupCW.Views.DVDSearch;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace groupCW.Controllers
@@ -16,6 +17,7 @@ namespace groupCW.Controllers
             _db = db;
         }
 
+        
         public IActionResult Index()
         {
             return View();
